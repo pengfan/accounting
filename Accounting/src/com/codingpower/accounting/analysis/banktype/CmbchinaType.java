@@ -3,6 +3,7 @@ package com.codingpower.accounting.analysis.banktype;
 import java.util.HashMap;
 import java.util.Map;
 
+import com.codingpower.accounting.analysis.Constants;
 import com.codingpower.accounting.analysis.Meta;
 import com.codingpower.accounting.analysis.SMSStringType;
 
@@ -14,10 +15,14 @@ import com.codingpower.accounting.analysis.SMSStringType;
 public class CmbchinaType implements SMSStringType {
 
 	@Override
+	public int bank() {
+		return Constants.BankType_cmb;
+	}
+	
+	@Override
 	public String phone() {
 		return "95555";
 	}
-
 
 	@Override
 	public String pattern() {
@@ -33,5 +38,4 @@ public class CmbchinaType implements SMSStringType {
 		map.put(4, Meta.TYPE);
 		return map;
 	}
-
 }
