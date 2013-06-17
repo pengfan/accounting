@@ -1,0 +1,43 @@
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@android:color/white">
+    
+    <LinearLayout 
+        android:id="@+id/totalStatusBar"
+        android:layout_width="wrap_content"
+    	android:layout_height="wrap_content"
+    	android:visibility="gone"
+    	android:padding="10dp">
+        <TextView 
+            android:layout_width="wrap_content"
+    		android:layout_height="wrap_content"
+    		android:text="@string/title_total_income"
+    		android:textColor="@color/sum_type_income"/>
+        <TextView 
+            android:id="@+id/totalIncomeView"
+            android:layout_width="wrap_content"
+    		android:layout_height="wrap_content"
+    		android:textColor="@color/sum_type_income"/>
+        <TextView 
+            android:layout_width="wrap_content"
+    		android:layout_height="wrap_content"
+    		android:layout_marginLeft="10dp"
+    		android:text="@string/title_total_expenses"
+    		android:textColor="@color/sum_type_expenses"/>
+        <TextView 
+            android:id="@+id/totalExpensesView"
+            android:layout_width="wrap_content"
+    		android:layout_height="wrap_content"
+    		android:textColor="@color/sum_type_expenses"/>
+        
+    </LinearLayout>
+    <ListView 
+        android:id="@+id/recordList"
+        android:layout_width="fill_parent"
+    	android:layout_height="wrap_content">
+    </ListView>
+
+</LinearLayout>

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<resources>
+    <color name="sum_type_income">#C82E31</color>
+    <color name="sum_type_expenses">#00A06B</color>
+    <color name="sum_type_unknown">#555555</color>
+</resources>

@@ -1,5 +1,7 @@
 package com.codingpower.accounting.analysis;
 
+import java.util.Date;
+
 /**
  * 分析元数据
  * @author fortransit
@@ -12,10 +14,12 @@ public class Meta {
 	public static final String SUM = "sum";
 	public static final String ACCOUNT = "account";
 	
+	private int bank;
 	private String datetime;
 	private String type;
 	private String sum;
 	private String account;
+	private Date smsDate;
 	
 	public String getDatetime() {
 		return datetime;
@@ -41,11 +45,20 @@ public class Meta {
 	public void setAccount(String account) {
 		this.account = account;
 	}
+	public int getBank() {
+		return bank;
+	}
+	public void setBank(int bank) {
+		this.bank = bank;
+	}
+	public Date getSmsDate() {
+		return smsDate;
+	}
+	public void setSmsDate(Date smsDate) {
+		this.smsDate = smsDate;
+	}
 	@Override
 	public String toString() {
-		return datetime +"\n" + account+"\n"+ sum + "\n" + type + "\n" ;
+		return datetime +"\n" + account+"\n"+ sum + "\n" + type + "\n" + smsDate.getTime();
 	}
-	
-	
-	
 }
