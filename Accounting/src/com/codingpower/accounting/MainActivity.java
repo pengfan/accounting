@@ -9,6 +9,7 @@ import android.support.v4.view.ViewPager;
 import com.actionbarsherlock.app.SherlockFragmentActivity;
 import com.actionbarsherlock.view.Menu;
 import com.actionbarsherlock.view.MenuItem;
+import com.codingpower.accounting.MouthStatsFragmentAdapter.DateTitle;
 import com.codingpower.accounting.analysis.adapter.SMSAdapter;
 import com.codingpower.accounting.model.Record;
 import com.viewpagerindicator.PageIndicator;
@@ -43,21 +44,29 @@ public class MainActivity extends SherlockFragmentActivity {
     private void init()
     {
     	recordList = smsAdapter.analysis(this);
+    	mAdapter.extractFrom(recordList);
     }
     
-    public List<Record> getMonthRecord(int month)
+    public List<Record> getMonthRecord(DateTitle dateTitle)
     {
     	List<Record> monthList = new ArrayList<Record>();
+    	boolean started = false;
     	for(Record rec : recordList)
     	{
-    		if(rec.getMonth() == month)
+    		if(dateTitle.includes(rec))
     		{
     			monthList.add(rec);
+    			started = true;
     		}
-    		else if(rec.getMonth() > month)
+    		else if(started)
     		{
     			break;
     		}
+    			
+    		/*else if(rec.getMonth() > month)
+    		{
+    			break;
+    		}*/
     	}
     	return monthList;
     }

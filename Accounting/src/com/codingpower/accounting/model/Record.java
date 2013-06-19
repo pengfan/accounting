@@ -36,7 +36,7 @@ public class Record {
 	public void setDateTime(Calendar calendar) {
 		this.dateTime = calendar;
 		year = calendar.get(Calendar.YEAR);
-		month = calendar.get(Calendar.MONTH);
+		month = calendar.get(Calendar.MONTH) + 1;
 	}
 	public BigDecimal getMoney() {
 		return money;

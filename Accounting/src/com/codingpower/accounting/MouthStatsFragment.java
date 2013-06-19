@@ -15,6 +15,7 @@ import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import com.codingpower.accounting.MouthStatsFragmentAdapter.DateTitle;
 import com.codingpower.accounting.analysis.Constants;
 import com.codingpower.accounting.analysis.adapter.ContentAdapter;
 import com.codingpower.accounting.model.Record;
@@ -29,16 +30,16 @@ public final class MouthStatsFragment extends Fragment {
     private static final String KEY_CONTENT = "MouthStatsFragment:month";
     private static final SimpleDateFormat ItemDateFormat = new SimpleDateFormat("MM-dd");
     
-    private int month;
+    private DateTitle dateTitle;
     private List<Record> monthRecordList = new ArrayList<Record>();
     private RecordListAdapter recordListAdapter;
     
     private View totalStatusBar;
     private TextView totalIncomeView, totalExpenseView;
 
-    public static MouthStatsFragment newInstance(int month) {
+    public static MouthStatsFragment newInstance(DateTitle dateTitle) {
         MouthStatsFragment fragment = new MouthStatsFragment();
-        fragment.month = month;
+        fragment.dateTitle = dateTitle;
         return fragment;
     }
 
@@ -46,9 +47,9 @@ public final class MouthStatsFragment extends Fragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        if ((savedInstanceState != null) && savedInstanceState.containsKey(KEY_CONTENT)) {
+       /* if ((savedInstanceState != null) && savedInstanceState.containsKey(KEY_CONTENT)) {
         	month = savedInstanceState.getInt(KEY_CONTENT);
-        }
+        }*/
         recordListAdapter = new RecordListAdapter();
     }
 
@@ -66,7 +67,7 @@ public final class MouthStatsFragment extends Fragment {
     
     public void getMonthList()
     {
-    	monthRecordList = ((MainActivity)getActivity()).getMonthRecord(month);
+    	monthRecordList = ((MainActivity)getActivity()).getMonthRecord(dateTitle);
     	recordListAdapter.notifyDataSetChanged();
     	if(!monthRecordList.isEmpty())
     	{
@@ -93,7 +94,7 @@ public final class MouthStatsFragment extends Fragment {
     @Override
     public void onSaveInstanceState(Bundle outState) {
         super.onSaveInstanceState(outState);
-        outState.putInt(KEY_CONTENT, month);
+        //outState.putInt(KEY_CONTENT, month);
     }
     
     public <T extends View>T findView(View view, int resId)

@@ -21,6 +21,7 @@ import android.util.Log;
 import com.codingpower.accounting.analysis.Meta;
 import com.codingpower.accounting.analysis.SMSStringType;
 import com.codingpower.accounting.analysis.banktype.CmbchinaType;
+import com.codingpower.accounting.analysis.banktype.CmbchinaType2;
 import com.codingpower.accounting.analysis.banktype.TranType;
 import com.codingpower.accounting.model.Record;
 
@@ -38,6 +39,7 @@ public class SMSAdapter {
 	public SMSAdapter()
 	{
 		typeSet.add(new CmbchinaType());
+		typeSet.add(new CmbchinaType2());
 		typeSet.add(new TranType());
 	}
 	
@@ -86,7 +88,11 @@ public class SMSAdapter {
 					pattern = Pattern.compile(smsType.pattern());
 					patternCache.put(smsType.pattern(), pattern);
 				}
-				return patternToMeta(date, smsType.bank(), content, pattern, smsType.meaningMap());
+				Meta meta = patternToMeta(date, smsType.bank(), content, pattern, smsType.meaningMap());
+				if(meta != null)
+				{
+					return meta;
+				}
 			}
 		}
 		return null;
