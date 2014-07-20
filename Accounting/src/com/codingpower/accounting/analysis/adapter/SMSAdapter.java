@@ -22,6 +22,8 @@ import com.codingpower.accounting.analysis.Meta;
 import com.codingpower.accounting.analysis.SMSStringType;
 import com.codingpower.accounting.analysis.banktype.CmbchinaType;
 import com.codingpower.accounting.analysis.banktype.CmbchinaType2;
+import com.codingpower.accounting.analysis.banktype.HangZhouType1;
+import com.codingpower.accounting.analysis.banktype.HangZhouType2;
 import com.codingpower.accounting.analysis.banktype.TranType;
 import com.codingpower.accounting.model.Record;
 
@@ -40,6 +42,8 @@ public class SMSAdapter {
 	{
 		typeSet.add(new CmbchinaType());
 		typeSet.add(new CmbchinaType2());
+		typeSet.add(new HangZhouType1());
+		typeSet.add(new HangZhouType2());
 		typeSet.add(new TranType());
 	}
 	
@@ -69,6 +73,11 @@ public class SMSAdapter {
 			Meta meta = generateMeta(date, phoneNum, content);
 			if(meta != null)
 			{
+				if("1065905710008396523".equals(phoneNum) 
+						|| "1065905710008296523".equals(phoneNum) ){
+					Log.i(TAG, content);
+				}
+				
 				metaList.add(changeToRecord(meta));
 			}
 		}
@@ -140,7 +149,7 @@ public class SMSAdapter {
 	{
 		Method m = metaMethodMap.get(propName);
 		Set set = metaMethodMap.keySet();
-		Log.w(TAG, propName + "," + String.valueOf(m));
+		//Log.w(TAG, propName + "," + String.valueOf(m));
 		if(metaMethodMap.containsKey(propName))
 		{
 			try {

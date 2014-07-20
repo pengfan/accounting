@@ -18,10 +18,11 @@ public class ContentAdapter {
 	
 	static 
 	{
-		expenseskeyWordSet.add("支付");
+		expenseskeyWordSet.add("支");
 		expenseskeyWordSet.add("消费");
 		expenseskeyWordSet.add("取现");
 		incomekeyWordSet.add("工资");
+		incomekeyWordSet.add("入");
 	}
 	
 	/**

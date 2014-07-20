@@ -16,7 +16,7 @@ public class DateAdapter {
 	private static String patterns[];
 
 	static {
-		patterns = new String[3];
+		patterns = new String[4];
 		patterns[0] = "(\\d+)月(\\d+)日(\\d+):(\\d+)";
 		patterns[1] = "(\\d+)月(\\d+)日(\\d+)时(\\d+)分";
 		patterns[2] = "\\d+年(\\d+)月(\\d+)日";
